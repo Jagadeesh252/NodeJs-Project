@@ -1,0 +1,167 @@
+{
+    "info": {
+      "_postman_id": "unique-postman-id",
+      "name": "Your Project APIs",
+      "description": "API collection for your project",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Authentication",
+        "item": [
+          {
+            "name": "Register User",
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{ \"username\": \"testuser\", \"password\": \"testpassword\" }"
+              },
+              "url": {
+                "raw": "{{base_url}}/auth/register",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "auth",
+                  "register"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Login User",
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{ \"username\": \"testuser\", \"password\": \"testpassword\" }"
+              },
+              "url": {
+                "raw": "{{base_url}}/auth/login",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "auth",
+                  "login"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Logout User",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{auth_token}}"
+                }
+              ],
+              "url": {
+                "raw": "{{base_url}}/auth/logout",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "auth",
+                  "logout"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Group Operations",
+        "item": [
+          {
+            "name": "Create Group",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{auth_token}}"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{ \"name\": \"Test Group\" }"
+              },
+              "url": {
+                "raw": "{{base_url}}/group/createGroup",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "group",
+                  "createGroup"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Message Operations",
+        "item": [
+          {
+            "name": "Send Message",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{auth_token}}"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{ \"groupId\": \"{{group_id}}\", \"content\": \"Hello, this is a test message!\" }"
+              },
+              "url": {
+                "raw": "{{base_url}}/message/sendMessage",
+                "host": [
+                  "{{base_url}}"
+                ],
+                "path": [
+                  "message",
+                  "sendMessage"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      }
+    ],
+    "variable": [
+      {
+        "id": "base_url",
+        "key": "base_url",
+        "value": "http://localhost:3000",
+        "type": "string"
+      },
+      {
+        "id": "auth_token",
+        "key": "auth_token",
+        "value": "your_generated_auth_token",
+        "type": "string"
+      },
+      {
+        "id": "group_id",
+        "key": "group_id",
+        "value": "your_existing_group_id",
+        "type": "string"
+      }
+    ]
+  }
+  
